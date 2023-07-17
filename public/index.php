@@ -39,27 +39,27 @@ require_once 'vendor/get_equipments_types.php'
 <table>
     <tbody>
     <tr>
-        <th colspan="3">Тестовые значения (проходят проверки)</th>
+        <th colspan="3">Тестовые значения</th>
     </tr>
     <tr>
-        <th>TP-Link TL-WR74</th>
-        <th>D-Link DIR-300</th>
-        <th>D-Link DIR-300 S</th>
+        <th>TP-Link TL-WR74: XXAAAAAXAA</th>
+        <th>D-Link DIR-300: NXXAAXZXaa</th>
+        <th>D-Link DIR-300 S: NXXAAXZXXX</th>
     </tr>
     <tr>
-        <td>ABEFGH1IJ</td>
-        <td>3V5WX-2lm</td>
-        <td>1TJAA-4BE</td>
+        <td>YYRCZUP2SF</td>
+        <td>746BFQ-5za</td>
+        <td>4CLVXE-ASJ</td>
     </tr>
     <tr>
-        <td>XYWXYZ0CD</td>
-        <td>1ABCD-Exy</td>
-        <td>9PQRS-789</td>
+        <td>0XLDLBUILR</td>
+        <td>3QUFUE@Exh</td>
+        <td>9O2XUP_157</td>
     </tr>
     <tr>
-        <td>ZZXYZZ9WW</td>
-        <td>5X7YZ@8fg</td>
-        <td>7IJKL_123</td>
+        <td>16JFECQGEO</td>
+        <td>9R6JLR_7rg</td>
+        <td>94LTZI-739</td>
     </tr>
     </tbody>
 </table>

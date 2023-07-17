@@ -1,20 +1,32 @@
 <?php
 
-function check_mask_to_regex($mask, $serial_number)
+function check_mask_to_regex($equipment_type_mask, $serial_number)
 {
-    $regexes = array(
-        'XXAAAAAXAA' => '/^[A-Z0-9]{2}[A-Z]{4}[A-Z0-9][A-Z]{2}$/',
-        'NXXAAXZXaa' => '/^\d[A-Z0-9]{2}[A-Z]{2}[-_@][A-Z0-9][a-z]{2}$/',
-        'NXXAAXZXXX' => '/^\d[A-Z0-9]{2}[A-Z]{2}[-_@][A-Z0-9]{3}$/',
+    if (preg_match(mask_to_regex($equipment_type_mask), $serial_number)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function mask_to_regex($equipment_type_mask)
+{
+    $transform = array(
+        'N' => '[0-9]',
+        'A' => '[A-Z]',
+        'a' => '[a-z]',
+        'X' => '[A-Z0-9]',
+        'Z' => '[-_@]'
     );
 
-    foreach ($regexes as $key => $regex) {
-        if ($key == $mask) {
-            if (preg_match($regexes[$key], $serial_number)) {
-                return true;
-            } else {
-                return false;
-            }
+    $regex = "";
+    for ($i = 0, $len = strlen($equipment_type_mask); $i < $len; $i++) {
+        $ch = $equipment_type_mask[$i];
+
+        if (isset($transform[$ch])) {
+            $regex .= $transform[$ch];
         }
     }
+
+    return '/^' . $regex . '$/';
 }

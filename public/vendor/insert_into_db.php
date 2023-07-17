@@ -5,10 +5,10 @@ require_once 'get_equipment_type_mask.php';
 require_once 'check_mask_to_regex.php';
 
 $serial_numbers = $_POST['serial_numbers'];
-$equipment_type = $_POST['equipment_type'];
+$equipment_type_id = $_POST['equipment_type'];
 
 $serial_numbers = explode("\n", str_replace("\r", "", $serial_numbers));
-$equipment_type_mask = get_equipment_type_mask($equipment_type, $connection);
+$equipment_type_mask = get_equipment_type_mask($equipment_type_id, $connection);
 
 $feedback = array();
 $alerts = array('Серийный номер уже существует в базе данных.',
@@ -24,7 +24,7 @@ foreach ($serial_numbers as $serial_number) {
         if (mysqli_num_rows($result) > 0) {
             $feedback[] = $alerts[0] . ' ' . $serial_number;
         } else {
-            $query = "INSERT INTO equipment (equipment_type_id, serial_number) VALUES ('$equipment_type', '$serial_number')";
+            $query = "INSERT INTO equipment (equipment_type_id, serial_number) VALUES ('$equipment_type_id', '$serial_number')";
             if (mysqli_query($connection, $query)) {
                 $feedback[] = $alerts[1] . ' ' . $serial_number;
             } else {
